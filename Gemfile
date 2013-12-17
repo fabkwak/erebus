@@ -14,6 +14,10 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
 end
 
+group :development do
+  gem 'annotate', '2.5.0'
+end
+
 group :test do
   gem 'selenium-webdriver', '2.0.0'
   gem 'capybara', '2.1.0'
