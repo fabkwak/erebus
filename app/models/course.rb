@@ -13,4 +13,6 @@ class Course < ActiveRecord::Base
 
   has_many :tees
   
+  validates :name, presence: true, length: { maximum: 255 }
+
 end

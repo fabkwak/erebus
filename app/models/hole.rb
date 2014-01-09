@@ -18,4 +18,13 @@ class Hole < ActiveRecord::Base
 
   belongs_to :tee
   belongs_to :course
+
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :course_id, presence: true
+  validates :tee_id, presence: true
+  validates :distance, presence: true
+  validates :handicap, presence: true
+  validates :num, presence: true
+  validates :par, presence: true
+
 end
