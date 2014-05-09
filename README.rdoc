@@ -1,4 +1,14 @@
-== Welcome to Rails
+== Status
+- Signin needs to be completed
+- Data Model with Scorecards needs to be completed
+- Need a way to enter data via web, and not manual
+- Need to display scorecards
+- Need to display courses
+
+
+
+
+Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
 database-backed web applications according to the Model-View-Control pattern.
