@@ -17,9 +17,10 @@ class Tee < ActiveRecord::Base
   belongs_to :course
   has_many :holes
 
+  validates :name, presence: true, length: { maximum: 255 }
   validates :course_id, presence: true
   validates :rating, presence: true
   validates :slope, presence: true
-  validates :name, presence: true { maximum: 50 }
+  
 
 end

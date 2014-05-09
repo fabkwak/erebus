@@ -14,12 +14,11 @@
 #
 
 class Hole < ActiveRecord::Base
-  attr_accessible :course_id, :distance, :handicap, :num, :par, :tee_id
+  attr_accessible :course_id, :tee_id, :distance, :handicap, :num, :par
 
   belongs_to :tee
   belongs_to :course
 
-  validates :name, presence: true, length: { maximum: 50 }
   validates :course_id, presence: true
   validates :tee_id, presence: true
   validates :distance, presence: true
