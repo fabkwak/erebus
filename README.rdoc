@@ -1,5 +1,6 @@
 == To Do
 - Signin needs to be completed
+  - Finished on 8.1.4
 - Need a way to enter data via web, and not manual
 - Need to display scorecards
 - Need to display courses
