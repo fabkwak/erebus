@@ -1,11 +1,24 @@
-== To Do
-- Signin needs to be completed
-  - Finished on 8.1.4
-- Need a way to enter data via web, and not manual
-- Need to display scorecards
-- Need to display courses
-
-
+Current
+  - Manage users
 
 Double check
-  - Data Model needs to be completed
+  - Course Data Model
+  - Gravatar for Users not included.  
+
+== To Do
+  - Courses
+    - Create/edit/delete 
+  - Ccorecard
+    - Create/edit/delete
+  - Friend association
+    - Create/edit/delete
+  - Views
+    - Match Play
+    - Stroke Play
+    - Team Stroke
+    - Skins
+  - 
+
+Bug List
+- Remove first name requirement
+  - maybe remove password confirmation
