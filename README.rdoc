@@ -1,14 +1,14 @@
 Current
-  - Manage users
+- Courses
+    - Create/edit/delete 
 
 Double check
   - Course Data Model
   - Gravatar for Users not included.  
 
 == To Do
-  - Courses
-    - Create/edit/delete 
-  - Ccorecard
+
+  - Scorecard
     - Create/edit/delete
   - Friend association
     - Create/edit/delete

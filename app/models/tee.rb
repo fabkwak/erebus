@@ -9,6 +9,7 @@
 #  slope      :float
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  par        :integer
 #
 
 class Tee < ActiveRecord::Base
