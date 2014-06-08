@@ -1,0 +1,29 @@
+<% provide(:title, @golf_club.name) %>
+<h1><%= @golf_club.name %></h1>
+
+<p>
+<% @tees.each do |tee| %>
+  <%= tee.name %> <br>
+  Rating <%= tee.rating %> Slope <%= tee.slope %> Par <%= tee.par %> <br>
+<% end %>
+</p>
+
+<p>
+<% @courses.each do |course| %>
+  <%= course.name %> <br>
+  <% @tees.each do |tee| %>
+  	Tee Name: <%= tee.name %> Tee ID: <%= tee.id %> <br>
+  	<% @holes = Hole.where(tee_id: tee.id)%>
+  	<% @holes.each do |hole| %>
+  	  Hole Num <%= hole.num %> 
+  	  Par <%= hole.par %>
+  	  Distance <%= hole.distance %>
+  	  Handicap <%= hole.handicap %>
+  	<% end %>
+  <% end %>
+<% end %>
+</p>
+
+<%
+=begin 
+=end %>

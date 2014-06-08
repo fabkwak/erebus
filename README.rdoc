@@ -1,6 +1,5 @@
 Current
 - Courses
-    - Create/edit/delete 
 
 Double check
   - Course Data Model
@@ -22,3 +21,25 @@ Double check
 Bug List
 - Remove first name requirement
   - maybe remove password confirmation
+
+
+~~~~USERS
+- Generate controller
+  - Create new.html.erb for users
+  - update link on sign up
+- Modling users
+  - Accessible attributes
+    - Creating new 
+    - Finding
+    - Updating
+  - Validating
+  - Indexing
+- Sign up
+  - Showing users
+    - Users as resource
+    - Creating show.html.erb (def show)
+  - Sign Up Form
+    - form_for
+    - def new
+  - Sign Up Failure
+

@@ -2,11 +2,11 @@
 #
 # Table name: course_nines
 #
-#  id          :integer          not null, primary key
-#  golf_club   :integer
-#  course_name :string(255)
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id           :integer          not null, primary key
+#  golf_club_id :integer
+#  name         :string(255)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 require 'spec_helper'
