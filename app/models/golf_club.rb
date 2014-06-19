@@ -10,8 +10,8 @@
 
 class GolfClub < ActiveRecord::Base
   attr_accessible :name
-  has_many :course_nines
-  #accepts_nested_attributes_for :course_nines
+  has_many :tees
+  #accepts_nested_attributes_for :tees
 
   validates :name, presence: true, length: { maximum: 150 }
   

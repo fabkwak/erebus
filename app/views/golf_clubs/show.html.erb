@@ -2,56 +2,53 @@
 <h1><%= @golf_club.name %></h1>
 
 <p>
-<% @tees.each do |tee| %>
+<% @tee.each do |tee| %>
   <%= tee.name %> <br>
   Rating <%= tee.rating %> Slope <%= tee.slope %> Par <%= tee.par %> <br>
 <% end %>
 </p>
 
-<table border ="1">
-  <tr>
-  <% i = 1 %>
-  <% @courses.each do |course| %>
-      <td>
-        <table border ="1">
-        <tr><td><%#= course.name %></td></tr>
-        <tr>
-          <td>Holes</td>
-          <% j = 1 %>
-          <% while j < 10 do %>
-          <td> <%= j %> </td>
-          <% j+=1 %>
-          <% end %>
 
-          <% if i==1%>
-            <td>OUT</td>
-          <% else %>
-            <td>IN</td>
-            <td>TOTAL </td>
-          <% end %>
-        </tr>
-        <tr>      
-          <% @tees.each do |tee| %>
-            <td>
-              <tr>
-                <td><%= tee.name %></td>
-                <% distance = 0 %>
-                <% @holes = Hole.where(tee_id: tee.id)%>
-                <% @holes.each do |hole| %>
-                  <td> <%= hole.distance %> </td>
-                  <% distance += hole.distance %>
-                <% end %>
-                <td> <%= distance %> </td>
-              </tr>
-            </td>
-          <% end %>
-        </tr>
-        </table>
-      </td>
-    <% i+=1 %>  
-  <% end %>
+  <table border ="1">
+  <tr>
+    <td>Holes</td>
+    <% j = 1 %>
+    <% while j <= 18 do %>
+      <td> <%= j %> </td>
+      <% if j == 9 %>
+        <td> OUT </td>
+      <% end %>
+      <% if j == 18 %>
+        <td> IN </td>
+        <td> TOTAL </td>
+      <% end %>
+      <% j+=1 %>
+    <% end %>   
   </tr>
-</table>
+  
+  <tr>      
+    <% @tee.each do |tee| %>
+      <td>
+        <tr>
+          <td><%= tee.name %></td>
+          <% distance = 0 %>       
+          <% tot_distance = 0 %>
+          <% @holes = Hole.where(tee_id: tee.id)%>
+          <% @holes.each do |hole| %>
+            <td> <%= hole.distance %> </td>
+            <% distance += hole.distance %>
+            <% if hole.num == 9 || hole.num == 18  %>
+              <td> <%= distance %> </td>
+              <% tot_distance += distance %>
+              <% distance = 0 %>
+            <% end %>
+          <% end %>
+          <td> <%= tot_distance %> </td>
+        </tr>
+      </td>
+    <% end %>
+  </tr>
+  </table> 
 
 
 <table cellpadding="0" cellspacing="0" width="80%" style="border-collapse:collapse;border-style:none;">

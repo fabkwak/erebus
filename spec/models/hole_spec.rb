@@ -2,15 +2,15 @@
 #
 # Table name: holes
 #
-#  id             :integer          not null, primary key
-#  course_nine_id :integer
-#  tee_id         :integer
-#  num            :integer
-#  par            :integer
-#  distance       :integer
-#  handicap       :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id           :integer          not null, primary key
+#  golf_club_id :integer
+#  tee_id       :integer
+#  num          :integer
+#  par          :integer
+#  distance     :integer
+#  handicap     :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 require 'spec_helper'
