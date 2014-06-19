@@ -17,6 +17,7 @@ class Tee < ActiveRecord::Base
 
   belongs_to :course_nines
   has_many :holes
+  #accepts_nested_attributes_for :tee
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :coursenine_id, presence: true

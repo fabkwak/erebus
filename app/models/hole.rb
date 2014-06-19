@@ -15,8 +15,8 @@
 
 class Hole < ActiveRecord::Base
   attr_accessible :course_nine_id, :tee_id, :distance, :handicap, :num, :par
-
   belongs_to :tee
+  #accepts_nested_attributes_for :tee
 
   validates :course_nine_id, presence: true
   validates :tee_id, presence: true

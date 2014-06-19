@@ -8,22 +8,181 @@
 <% end %>
 </p>
 
-<p>
-<% @courses.each do |course| %>
-  <%= course.name %> <br>
-  <% @tees.each do |tee| %>
-  	Tee Name: <%= tee.name %> Tee ID: <%= tee.id %> <br>
-  	<% @holes = Hole.where(tee_id: tee.id)%>
-  	<% @holes.each do |hole| %>
-  	  Hole Num <%= hole.num %> 
-  	  Par <%= hole.par %>
-  	  Distance <%= hole.distance %>
-  	  Handicap <%= hole.handicap %>
-  	<% end %>
-  <% end %>
-<% end %>
-</p>
+<table border ="1">
+  <tr>
+  <% i = 1 %>
+  <% @courses.each do |course| %>
+      <td>
+        <table border ="1">
+        <tr><td><%#= course.name %></td></tr>
+        <tr>
+          <td>Holes</td>
+          <% j = 1 %>
+          <% while j < 10 do %>
+          <td> <%= j %> </td>
+          <% j+=1 %>
+          <% end %>
 
-<%
-=begin 
-=end %>
+          <% if i==1%>
+            <td>OUT</td>
+          <% else %>
+            <td>IN</td>
+            <td>TOTAL </td>
+          <% end %>
+        </tr>
+        <tr>      
+          <% @tees.each do |tee| %>
+            <td>
+              <tr>
+                <td><%= tee.name %></td>
+                <% distance = 0 %>
+                <% @holes = Hole.where(tee_id: tee.id)%>
+                <% @holes.each do |hole| %>
+                  <td> <%= hole.distance %> </td>
+                  <% distance += hole.distance %>
+                <% end %>
+                <td> <%= distance %> </td>
+              </tr>
+            </td>
+          <% end %>
+        </tr>
+        </table>
+      </td>
+    <% i+=1 %>  
+  <% end %>
+  </tr>
+</table>
+
+
+<table cellpadding="0" cellspacing="0" width="80%" style="border-collapse:collapse;border-style:none;">
+  <tr>
+    <td style="border-style:none;">
+      <b>Mountain</b>
+    </td>
+    
+    <td style="border-style:none;">
+      <b>Desert</b>
+    </td>
+  </tr> 
+  
+  <tr>
+    <td style="border-style:none;">
+    
+    <table>
+      <tr style="background-color:#99CCFF">
+        <td >Holes</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td >4</td>
+        <td >5</td>
+        <td >6</td>
+        <td >7</td>
+        <td >8</td>
+        <td >9</td>
+        <td>OUT</td>
+      </tr>
+      <tr style="background-color:#FFFF99">
+        <td >Back</td>
+        <td >299</td>
+        <td >366</td>
+        <td >615</td>
+        <td >346</td>
+        <td >338</td>
+        <td >183</td>
+        <td >422</td>
+        <td >144</td>
+        <td >561</td>
+        <td >3274</td>
+      </tr>
+      <tr>
+        <td >Handicap</td>
+        <td >4</td>
+        <td >9</td>
+        <td >6</td>
+        <td >3</td>
+        <td >1</td>
+        <td >7</td>
+        <td >8</td>
+        <td >5</td>
+        <td >2</td>
+        <td ></td>
+      </tr>
+      <tr style="background-color:#EEEEEE">
+        <td >Par</td>
+        <td >5</td>
+        <td >4</td>
+        <td >3</td>
+        <td >4</td>
+        <td >5</td>
+        <td >4</td>
+        <td >3</td>
+        <td >4</td>
+        <td >4</td>
+        <td >36</td>
+      </tr>
+    </table>
+    </td>
+    <td style="border-style:none;">
+      <table>
+        <tr style="background-color:#99CCFF">
+          <td >Holes</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>IN</td>
+          <td>TOTAL</td>
+        </tr>
+        <tr style="background-color:#FFFF99">
+          <td >Back</td>
+          <td >498</td>
+          <td >345</td>
+          <td >181</td>
+          <td >392</td>
+          <td >570</td>
+          <td >368</td>
+          <td >177</td>
+          <td >369</td>
+          <td >378</td>
+          <td >3278</td>
+          <td >6552</td>
+        </tr>
+        <tr>
+          <td >Handicap</td>
+          <td >8</td>
+          <td >4</td>
+          <td >1</td>
+          <td >5</td>
+          <td >7</td>
+          <td >6</td>
+          <td >2</td>
+          <td >9</td>
+          <td >3</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr style="background-color:#EEEEEE">
+          <td >Par</td>
+          <td >4</td>
+          <td >4</td>
+          <td >5</td>
+          <td >4</td>
+          <td >4</td>
+          <td >3</td>
+          <td >4</td>
+          <td >3</td>
+          <td >5</td>
+          <td >36</td>
+          <td >72</td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
