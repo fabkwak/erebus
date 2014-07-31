@@ -11,6 +11,9 @@
 #  handicap     :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  course_id    :integer
+#  ladies_par   :integer
+#  ladies_handi :integer
 #
 
 require 'spec_helper'

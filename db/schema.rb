@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140619201609) do
+ActiveRecord::Schema.define(:version => 20140725235041) do
+
+  create_table "courses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "golf_club_id"
+  end
 
   create_table "golf_clubs", :force => true do |t|
     t.string   "name"
@@ -28,16 +35,22 @@ ActiveRecord::Schema.define(:version => 20140619201609) do
     t.integer  "handicap"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "course_id"
+    t.integer  "ladies_par"
+    t.integer  "ladies_handi"
   end
 
   create_table "tees", :force => true do |t|
     t.string   "name"
-    t.integer  "golf_club_id"
+    t.integer  "course_id"
     t.float    "rating"
     t.float    "slope"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "par"
+    t.integer  "tot_distance"
+    t.integer  "ladies_par"
+    t.integer  "golf_club_id"
   end
 
   create_table "users", :force => true do |t|

@@ -11,16 +11,30 @@
 #  handicap     :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  course_id    :integer
+#  ladies_par   :integer
+#  ladies_handi :integer
 #
 
 
 class Hole < ActiveRecord::Base
-  attr_accessible :golf_club_id, :tee_id, :distance, :num, :par, :handicap 
+  attr_accessible 	:golf_club_id, 
+  					:tee_id, 
+  					:distance, 
+  					:num, 
+  					:par, 
+  					:handicap, 
+  					:ladies_par, 
+  					:ladies_handi,
+  					:course_id
+ 
   belongs_to :tees
+  belongs_to :courses
+  belongs_to :golf_clubs
   
   #accepts_nested_attributes_for :tee
 
-  validates :golf_club_id, presence: true
+  validates :course_id, presence: true
   validates :tee_id, presence: true
   validates :distance, presence: true
   validates :handicap, presence: true

@@ -5,7 +5,7 @@ class GolfClubsController < ApplicationController
 
   def show
     @golf_club = GolfClub.find(params[:id])
-    @tee = @golf_club.tees
+    @courses = @golf_club.courses
     #@holes = Hole.where(tee_id: @tees.id)
   end
 
