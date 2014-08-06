@@ -1,0 +1,17 @@
+<p>
+<% @courses.each do |course| %>
+  <%= course.name %> <br>
+
+  <% @tees.each do |tee| %>
+  	Tee Name: <%= tee.name %> Tee ID: <%= tee.id %> <br>
+  	<% @holes = Hole.where(tee_id: tee.id)%>
+  	<% @holes.each do |hole| %>
+  	  Hole Num <%= hole.num %> 
+  	  Par <%= hole.par %>
+  	  Distance <%= hole.distance %>
+  	  Handicap <%= hole.handicap %>
+  	<% end %>
+
+  <% end %>
+<% end %>
+</p>

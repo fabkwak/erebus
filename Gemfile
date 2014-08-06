@@ -5,7 +5,7 @@ ruby '1.9.3'
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '~>3.0.1'
-gem 'faker', '1.1.2'
+gem 'faker', '1.3.0'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
@@ -21,6 +21,7 @@ end
 group :test do
   gem 'selenium-webdriver', '2.0.0'
   gem 'capybara', '2.1.0'
+  #gem 'factory_girl_rails', '4.1.0'
 end
 
 gem 'sass-rails',   '3.2.5'

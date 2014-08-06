@@ -11,46 +11,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140725235041) do
+ActiveRecord::Schema.define(:version => 20140806034632) do
 
-  create_table "courses", :force => true do |t|
+  create_table "course_nines", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.string   "golf_club_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "golf_course_id"
   end
 
-  create_table "golf_clubs", :force => true do |t|
+  create_table "golf_courses", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "holes", :force => true do |t|
-    t.integer  "golf_club_id"
+    t.integer  "golf_course_id"
     t.integer  "tee_id"
     t.integer  "num"
     t.integer  "par"
     t.integer  "distance"
     t.integer  "handicap"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "course_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "course_nine_id"
     t.integer  "ladies_par"
-    t.integer  "ladies_handi"
+    t.integer  "ladies_handicap"
   end
 
   create_table "tees", :force => true do |t|
     t.string   "name"
-    t.integer  "course_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "par"
+    t.integer  "distance"
+    t.integer  "golf_course_id"
+    t.integer  "front"
+    t.integer  "back"
     t.float    "rating"
     t.float    "slope"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "par"
-    t.integer  "tot_distance"
-    t.integer  "ladies_par"
-    t.integer  "golf_club_id"
+    t.integer  "course_nine_id"
   end
 
   create_table "users", :force => true do |t|

@@ -2,19 +2,21 @@
 #
 # Table name: course_nines
 #
-#  id           :integer          not null, primary key
-#  golf_club_id :integer
-#  name         :string(255)
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id             :integer          not null, primary key
+#  name           :string(255)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  golf_course_id :string(255)
 #
 
 class CourseNine < ActiveRecord::Base
-  attr_accessible :name, :golfclub_id
-  belongs_to :golf_club
-  has_many :tees
-  accepts_nested_attributes_for :tees
+  attr_accessible :name, :golf_course_id
+  
+  belongs_to :golf_courses
+  belongs_to :tees
+  
+  has_many :holes
 
   validates :name, presence: true, length: { maximum: 255 }
-  validates :golfclub_id, presence: true
+
 end

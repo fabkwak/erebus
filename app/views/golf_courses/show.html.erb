@@ -1,0 +1,174 @@
+<% provide(:title, @golf_club.name) %>
+<h1><%= @golf_club.name %></h1>
+
+
+<table>
+  <tr>      
+    <% @courses.each do |course| %>
+    <table>
+      <tr>
+        <th><%= course.name %></th>
+        <%tees = course.tees%>
+          <table>
+            <% tees.each do |tee| %>
+            <tr>
+              <td> <%=tee.name%> </td>
+            <tr>
+            <%end%>
+          </table>
+      </tr>
+    </table>
+    <% end %>
+  </tr>
+</table>
+
+
+<br><br><br><br><br><br><br><br>
+<table cellpadding="0" cellspacing="0" width="80%" style="border-collapse:collapse;border-style:none;">
+  <tr>
+    <td style="border-style:none;">
+      <b>Mountain</b>
+    </td>
+    
+    <td style="border-style:none;">
+      <b>Desert</b>
+    </td>
+  </tr> 
+  
+  <tr>
+    <td style="border-style:none;">
+    
+    <table>
+      <tr style="background-color:#99CCFF">
+        <td >Holes</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td >4</td>
+        <td >5</td>
+        <td >6</td>
+        <td >7</td>
+        <td >8</td>
+        <td >9</td>
+        <td>OUT</td>
+      </tr>
+      <tr style="background-color:#FFFF99">
+        <td >Back</td>
+        <td >299</td>
+        <td >366</td>
+        <td >615</td>
+        <td >346</td>
+        <td >338</td>
+        <td >183</td>
+        <td >422</td>
+        <td >144</td>
+        <td >561</td>
+        <td >3274</td>
+      </tr>
+      <tr>
+        <td >Handicap</td>
+        <td >4</td>
+        <td >9</td>
+        <td >6</td>
+        <td >3</td>
+        <td >1</td>
+        <td >7</td>
+        <td >8</td>
+        <td >5</td>
+        <td >2</td>
+        <td ></td>
+      </tr>
+      <tr style="background-color:#EEEEEE">
+        <td >Par</td>
+        <td >5</td>
+        <td >4</td>
+        <td >3</td>
+        <td >4</td>
+        <td >5</td>
+        <td >4</td>
+        <td >3</td>
+        <td >4</td>
+        <td >4</td>
+        <td >36</td>
+      </tr>
+    </table>
+    </td>
+    <td style="border-style:none;">
+      <table>
+        <tr style="background-color:#99CCFF">
+          <td >Holes</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>IN</td>
+          <td>TOTAL</td>
+        </tr>
+        <tr style="background-color:#FFFF99">
+          <td >Back</td>
+          <td >498</td>
+          <td >345</td>
+          <td >181</td>
+          <td >392</td>
+          <td >570</td>
+          <td >368</td>
+          <td >177</td>
+          <td >369</td>
+          <td >378</td>
+          <td >3278</td>
+          <td >6552</td>
+        </tr>
+        <tr>
+          <td >Handicap</td>
+          <td >8</td>
+          <td >4</td>
+          <td >1</td>
+          <td >5</td>
+          <td >7</td>
+          <td >6</td>
+          <td >2</td>
+          <td >9</td>
+          <td >3</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr style="background-color:#EEEEEE">
+          <td >Par</td>
+          <td >4</td>
+          <td >4</td>
+          <td >5</td>
+          <td >4</td>
+          <td >4</td>
+          <td >3</td>
+          <td >4</td>
+          <td >3</td>
+          <td >5</td>
+          <td >36</td>
+          <td >72</td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+
+            <tr style="background-color:#99CCFF">
+            <td >Hole</td>
+            <% j = 1 %>
+            <% while j <= 18 do %>
+              <td> <%= j %> </td>
+              <% if j == 9 %>
+                <td> OUT </td>
+              <% end %>
+              <% if j == 18 %>
+                <td> IN </td>
+                <td> TOTAL </td>
+              <% end %>
+              <% j+=1 %>
+            <% end %>   
+          </tr>
+</table>
