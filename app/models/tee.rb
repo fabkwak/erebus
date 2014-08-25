@@ -13,7 +13,6 @@
 #  back           :integer
 #  rating         :float
 #  slope          :float
-#  course_nine_id :integer
 #
 
 class Tee < ActiveRecord::Base
@@ -28,7 +27,7 @@ class Tee < ActiveRecord::Base
 
   belongs_to :golf_courses
   
-  has_many :course_nines
+  has_many :tee_courses, foreign_key: "coursenine_id"
   has_many :holes
   #accepts_nested_attributes_for :golf_clubs
 

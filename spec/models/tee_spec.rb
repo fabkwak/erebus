@@ -13,7 +13,6 @@
 #  back           :integer
 #  rating         :float
 #  slope          :float
-#  course_nine_id :integer
 #
 
 require 'spec_helper'

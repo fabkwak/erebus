@@ -1,19 +1,19 @@
 class GolfCourseController < ApplicationController
   def new
-    @golf_club = GolfClub.new
+    @golf_course = GolfCourse.new
   end
 
   def show
-    @golf_club = GolfClub.find(params[:id])
-    @courses = @golf_club.courses
+    @golf_course = GolfCourse.find(params[:id])
+    @tees = @golf_course.tees
     #@holes = Hole.where(tee_id: @tees.id)
   end
 
   def create
-    @golf_club = GolfClub.new(params[:golf_club])
-    if @golf_club.save
-      flash[:success] = "New Golf Club Created"
-      redirect_to @golf_club
+    @golf_course = GolfCourse.new(params[:golf_course])
+    if @golf_course.save
+      flash[:success] = "New Golf Course Created"
+      redirect_to @golf_course
     else
       render 'new'
     end

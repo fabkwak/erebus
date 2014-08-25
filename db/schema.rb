@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140806034632) do
+ActiveRecord::Schema.define(:version => 20140821033957) do
 
   create_table "course_nines", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,18 @@ ActiveRecord::Schema.define(:version => 20140806034632) do
     t.integer  "ladies_handicap"
   end
 
+  create_table "tee_courses", :force => true do |t|
+    t.integer  "tee_id"
+    t.integer  "coursenine_id"
+    t.integer  "position"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "tee_courses", ["coursenine_id"], :name => "index_tee_courses_on_coursenine_id"
+  add_index "tee_courses", ["tee_id", "coursenine_id", "position"], :name => "index_tee_courses_on_tee_id_and_coursenine_id_and_position", :unique => true
+  add_index "tee_courses", ["tee_id"], :name => "index_tee_courses_on_tee_id"
+
   create_table "tees", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",     :null => false
@@ -51,7 +63,6 @@ ActiveRecord::Schema.define(:version => 20140806034632) do
     t.integer  "back"
     t.float    "rating"
     t.float    "slope"
-    t.integer  "course_nine_id"
   end
 
   create_table "users", :force => true do |t|
