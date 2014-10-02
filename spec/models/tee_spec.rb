@@ -9,10 +9,9 @@
 #  par            :integer
 #  distance       :integer
 #  golf_course_id :integer
-#  front          :integer
-#  back           :integer
 #  rating         :float
 #  slope          :float
+#  pos            :integer
 #
 
 require 'spec_helper'

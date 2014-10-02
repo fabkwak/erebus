@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140821033957) do
+ActiveRecord::Schema.define(:version => 20140825234745) do
 
   create_table "course_nines", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(:version => 20140821033957) do
     t.datetime "updated_at",     :null => false
     t.string   "golf_course_id"
   end
+
+  create_table "course_relationships", :force => true do |t|
+    t.integer  "tee_id"
+    t.integer  "course_nine_id"
+    t.integer  "pos"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "course_relationships", ["course_nine_id"], :name => "index_course_relationships_on_course_nine_id"
+  add_index "course_relationships", ["tee_id", "course_nine_id"], :name => "index_course_relationships_on_tee_id_and_course_nine_id", :unique => true
+  add_index "course_relationships", ["tee_id"], :name => "index_course_relationships_on_tee_id"
 
   create_table "golf_courses", :force => true do |t|
     t.string   "name"
@@ -59,10 +71,9 @@ ActiveRecord::Schema.define(:version => 20140821033957) do
     t.integer  "par"
     t.integer  "distance"
     t.integer  "golf_course_id"
-    t.integer  "front"
-    t.integer  "back"
     t.float    "rating"
     t.float    "slope"
+    t.integer  "pos"
   end
 
   create_table "users", :force => true do |t|

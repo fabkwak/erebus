@@ -16,17 +16,20 @@ namespace :db do
                    password_confirmation: password)
     end
 
-    griffith = GolfCourse.create!(name: "Griffith Park: Wilson Golf Course")
+    griffith = GolfCourse.create!(name: "Griffith Park Wilson Golf Course")
     blacktees = Tee.create!(name: "Black", 
                 golf_course_id: griffith.id,
                 slope: "123",
                 par: "72",
                 rating: "72.8",
-                distance: "6952")
+                distance: "6952",
+                pos: "1")
 
-    front = CourseNine.create!(name: "Front", golf_course_id: griffith.id)
-
+    front = CourseNine.create!(name: "Front")
     
+    CourseRelationship.create!(course_nine_id: front.id, 
+                               tee_id: blacktees.id, 
+                               pos: "1")
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -100,8 +103,12 @@ namespace :db do
                        handicap: "11",
                        course_nine_id: front.id)
 
-    back = CourseNine.create!(name: "Back", golf_course_id: griffith.id)
+    back = CourseNine.create!(name: "Back")
         
+    CourseRelationship.create!(course_nine_id: back.id, 
+                               tee_id: blacktees.id, 
+                               pos: "2")
+
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
                        num: "10",
@@ -174,8 +181,22 @@ namespace :db do
                        handicap: "8",
                        course_nine_id: back.id)                                                                      
 
-    blacktees.front = front.id
-    blacktees.back = back.id
+    bluetees = Tee.create!(name: "Blue", 
+                golf_course_id: griffith.id,
+                slope: "122",
+                par: "72",
+                rating: "71.8",
+                distance: "6685",
+                pos: "2")
+
+    whitetees = Tee.create!(name: "White", 
+                golf_course_id: griffith.id,
+                slope: "119",
+                par: "72",
+                rating: "70.6",
+                distance: "6119",
+                pos: "3") 
+
 
                     
     #10.times do |g|

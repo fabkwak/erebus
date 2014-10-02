@@ -10,12 +10,11 @@
 #
 
 class CourseNine < ActiveRecord::Base
-  attr_accessible :name, :golf_course_id
-  
-  belongs_to :golf_courses
-  belongs_to :tees
-  
+  attr_accessible :name
+      
   has_many :holes
+  has_many :course_relationships
+  has_many :tees, through: :course_relationships
 
   validates :name, presence: true, length: { maximum: 255 }
 

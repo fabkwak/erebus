@@ -9,10 +9,9 @@
 #  par            :integer
 #  distance       :integer
 #  golf_course_id :integer
-#  front          :integer
-#  back           :integer
 #  rating         :float
 #  slope          :float
+#  pos            :integer
 #
 
 class Tee < ActiveRecord::Base
@@ -23,12 +22,14 @@ class Tee < ActiveRecord::Base
             :front,
             :back,
             :rating,
-            :slope
+            :slope,
+            :pos
 
   belongs_to :golf_courses
   
-  has_many :tee_courses, foreign_key: "coursenine_id"
-  has_many :holes
+  has_many :course_relationships
+  has_many :course_nines, through: :course_relationships
+
   #accepts_nested_attributes_for :golf_clubs
 
   validates :name, presence: true, length: { maximum: 255 }

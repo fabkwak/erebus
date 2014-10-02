@@ -28,7 +28,7 @@ class Hole < ActiveRecord::Base
   					:ladies_handi,
   					:course_nine_id
  
-  belongs_to :tees
+
   belongs_to :course_nines
   belongs_to :golf_clubs
 
