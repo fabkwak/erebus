@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140825234745) do
+ActiveRecord::Schema.define(:version => 20141002044121) do
 
   create_table "course_nines", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.string   "golf_course_id"
+    t.integer  "course_id"
   end
 
   create_table "course_relationships", :force => true do |t|
@@ -31,6 +32,13 @@ ActiveRecord::Schema.define(:version => 20140825234745) do
   add_index "course_relationships", ["course_nine_id"], :name => "index_course_relationships_on_course_nine_id"
   add_index "course_relationships", ["tee_id", "course_nine_id"], :name => "index_course_relationships_on_tee_id_and_course_nine_id", :unique => true
   add_index "course_relationships", ["tee_id"], :name => "index_course_relationships_on_tee_id"
+
+  create_table "courses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "golf_course_id"
+  end
 
   create_table "golf_courses", :force => true do |t|
     t.string   "name"
@@ -50,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20140825234745) do
     t.integer  "course_nine_id"
     t.integer  "ladies_par"
     t.integer  "ladies_handicap"
+    t.integer  "course_id"
   end
 
   create_table "tee_courses", :force => true do |t|
@@ -74,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20140825234745) do
     t.float    "rating"
     t.float    "slope"
     t.integer  "pos"
+    t.integer  "course_id"
   end
 
   create_table "users", :force => true do |t|

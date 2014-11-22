@@ -1,15 +1,55 @@
 <h1><%= @golf_course.name %> Scorecard</h1>
 
-<% @tees.each do |t| %>
-  <h2 align="left"><%= t.name %></h2>
-    <% t.course_nines.each do |c| %>
-      <h3><%= c.name %></h3>
+
+<table>
+  <tr>
+    <td> Holes </td>
+    <%for i in 1..18 %>
+        <td><%= i %></td>
+        <% if i==9%>
+          <td>Out</td>
+        <% elsif i == 18 %> 
+          <td>In</td>
+          <td>Total</td>
+        <%end%>
+    <%end%> <!-- holes -->
+  </tr>
+  <tr>
+    <% @tees.each do |t| %>
+    <td><%= t.name %></td> <!--TEE NAME -->
+      <% i = 0 %>
+      <% t.course_nines.each do |c| %>
+       <% j = 0 %>       
         <% c.holes.each do |h| %>
-          <p> Hole: <%= h.num %> <p>
-          <p> Par <%= h.par %> <p>
-          <p> Distance <%= h.distance %> <p>
-          <p> Handicap: <%= h.handicap %> <p>
-        <%end%>      
-    <%end%>  
-<%end%>
+        <td><%= h.distance %></td>
+        <% j += h.distance %>
+        <% i += h.distance %>
+        <% if h.num == 9 %>
+          <td><%= j %></td>
+        <% elsif h.num == 18 %> 
+          <td><%= j %></td>
+          <td><%= i %></td>
+        <%end%> <!--IF -->
+        <%end%> <!--holes -->
+      <%end%> <!--course_nines -->
+  </tr> 
+    <%end%> <!--tees -->  
+  <tr> 
+    <td>Handicap </td>
+    <% t = @tees.first  %>
+        <% t.course_nines.each do |c| %>
+            <% c.holes.each do |h| %>
+              <td><%= h.handicap %> </td>
+              <% if h.num == 9 %>
+                <td></td>
+              <% elsif h.num == 18 %> 
+                <td></td>
+                <td></td>
+              <%end%> <!--IF -->
+            <%end%>  <!-- Holes -->    
+        <%end%> <!-- Course Nines --> 
+    <%end%>
+  </tr>
+ 
+</table>
 

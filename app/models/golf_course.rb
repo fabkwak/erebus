@@ -10,8 +10,10 @@
 
 class GolfCourse < ActiveRecord::Base
   attr_accessible :name
+  
   has_many :tees
   has_many :course_nines
+  has_many :courses
 
   #accepts_nested_attributes_for :courses
 

@@ -12,6 +12,7 @@
 #  rating         :float
 #  slope          :float
 #  pos            :integer
+#  course_id      :integer
 #
 
 class Tee < ActiveRecord::Base
@@ -23,9 +24,10 @@ class Tee < ActiveRecord::Base
             :back,
             :rating,
             :slope,
-            :pos
+            :pos, 
+            :course_id
 
-  belongs_to :golf_courses
+  belongs_to :courses
   
   has_many :course_relationships
   has_many :course_nines, through: :course_relationships

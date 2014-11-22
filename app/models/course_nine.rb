@@ -7,10 +7,11 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  golf_course_id :string(255)
+#  course_id      :integer
 #
 
 class CourseNine < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :golf_course_id, :course_id
       
   has_many :holes
   has_many :course_relationships

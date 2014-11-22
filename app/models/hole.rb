@@ -14,6 +14,7 @@
 #  course_nine_id  :integer
 #  ladies_par      :integer
 #  ladies_handicap :integer
+#  course_id       :integer
 #
 
 
@@ -27,10 +28,11 @@ class Hole < ActiveRecord::Base
   					:ladies_par, 
   					:ladies_handi,
   					:course_nine_id
+            :course_id
  
 
   belongs_to :course_nines
-  belongs_to :golf_clubs
+  belongs_to :golf_courses
 
   #accepts_nested_attributes_for :tee
 

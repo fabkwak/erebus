@@ -14,6 +14,7 @@
 #  course_nine_id  :integer
 #  ladies_par      :integer
 #  ladies_handicap :integer
+#  course_id       :integer
 #
 
 require 'spec_helper'
