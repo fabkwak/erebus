@@ -1,0 +1,45 @@
+Current
+- Courses - should I flatten model?
+
+Double check
+  - Course Data Model
+  - Gravatar for Users not included.  
+
+== To Do
+
+  - Scorecard
+    - Create/edit/delete
+  - Friend association
+    - Create/edit/delete
+  - Views
+    - Match Play
+    - Stroke Play
+    - Team Stroke
+    - Skins
+  - 
+
+Bug List
+- Remove first name requirement
+  - maybe remove password confirmation
+
+DASHBOARD
+ - User Metadata
+ - Friends Activity
+ 
+COURSE
+ - Course Metadata
+ - Logged in Users
+  - Best\Worst Round
+  - What they should score
+
+USER PROFILE
+ - User Metadata
+  - Rounds played
+  - Handicap
+  - Score
+  - Trend?
+
+
+
+
+
