@@ -1,11 +1,13 @@
-Current
-- Courses - should I flatten model?
+rails s -p $PORT -b $IP
 
-Double check
-  - Course Data Model
-  - Gravatar for Users not included.  
+Current
+- Updating Sample Data based on Golf Course
+- Is Golf Course ID and course ID needed for course nines?
+
 
 == To Do
+  
+
 
   - Scorecard
     - Create/edit/delete
@@ -32,7 +34,7 @@ COURSE
   - Best\Worst Round
   - What they should score
 
-USER PROFILE
+USER PROFILEs
  - User Metadata
   - Rounds played
   - Handicap
@@ -42,4 +44,5 @@ USER PROFILE
 
 
 
+https://my.vertabelo.com
 

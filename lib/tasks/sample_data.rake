@@ -16,7 +16,9 @@ namespace :db do
                    password_confirmation: password)
     end
 
-    griffith = GolfCourse.create!(name: "Griffith Park Course")
+    griffith = GolfCourse.create!(name: "Griffith Park")
+
+    wilson = Course.create!(name: "Wilson Golf Course", golf_course_id: griffith.id)
 
     blacktees = Tee.create!(name: "Black", 
                 golf_course_id: griffith.id,
@@ -24,9 +26,10 @@ namespace :db do
                 par: "72",
                 rating: "72.8",
                 distance: "6952",
-                pos: "1")
+                pos: "1",
+                course_id: wilson.id)
 
-    front = CourseNine.create!(name: "Front")
+    front = CourseNine.create!(name: "Front", golf_course_id: griffith.id, course_id: wilson.id)
     
     CourseRelationship.create!(course_nine_id: front.id, 
                                tee_id: blacktees.id, 
@@ -38,7 +41,8 @@ namespace :db do
                        par: "5",
                        distance: "536",
                        handicap: "13",
-                       course_nine_id: front.id)
+                       course_nine_id: front.id,
+                       course_id: wilson.id)
     
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -46,7 +50,8 @@ namespace :db do
                        par: "4",
                        distance: "416",
                        handicap: "1",
-                       course_nine_id: front.id)
+                       course_nine_id: front.id,
+                       course_id: wilson.id)
     
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -54,7 +59,8 @@ namespace :db do
                        par: "3",
                        distance: "192",
                        handicap: "7",
-                       course_nine_id: front.id)
+                       course_nine_id: front.id,
+                       course_id: wilson.id)
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -62,7 +68,8 @@ namespace :db do
                        par: "4",
                        distance: "335",
                        handicap: "17",
-                       course_nine_id: front.id)                  
+                       course_nine_id: front.id,
+                       course_id: wilson.id)                  
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -70,7 +77,8 @@ namespace :db do
                        par: "4",
                        distance: "329",
                        handicap: "15",
-                       course_nine_id: front.id)                   
+                       course_nine_id: front.id,
+                       course_id: wilson.id)                   
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -78,7 +86,8 @@ namespace :db do
                        par: "4",
                        distance: "397",
                        handicap: "9",
-                       course_nine_id: front.id)
+                       course_nine_id: front.id,
+                       course_id: wilson.id)
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -86,7 +95,8 @@ namespace :db do
                        par: "4",
                        distance: "397",
                        handicap: "5",
-                       course_nine_id: front.id)
+                       course_nine_id: front.id,
+                       course_id: wilson.id)
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -94,7 +104,8 @@ namespace :db do
                        par: "4",
                        distance: "431",
                        handicap: "3",
-                       course_nine_id: front.id) 
+                       course_nine_id: front.id,
+                       course_id: wilson.id) 
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -102,9 +113,12 @@ namespace :db do
                        par: "5",
                        distance: "576",
                        handicap: "11",
-                       course_nine_id: front.id)
+                       course_nine_id: front.id,
+                       course_id: wilson.id)
 
-    back = CourseNine.create!(name: "Back")
+
+    
+    back = CourseNine.create!(name: "Back", golf_course_id: griffith.id, course_id: wilson.id)
         
     CourseRelationship.create!(course_nine_id: back.id, 
                                tee_id: blacktees.id, 
@@ -116,7 +130,8 @@ namespace :db do
                        par: "4",
                        distance: "410",
                        handicap: "4",
-                       course_nine_id: back.id)
+                       course_nine_id: back.id,
+                       course_id: wilson.id)
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -124,7 +139,8 @@ namespace :db do
                        par: "3",
                        distance: "222",
                        handicap: "6",
-                       course_nine_id: back.id)                       
+                       course_nine_id: back.id,
+                       course_id: wilson.id)                       
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -132,7 +148,8 @@ namespace :db do
                        par: "4",
                        distance: "367",
                        handicap: "16",
-                       course_nine_id: back.id) 
+                       course_nine_id: back.id,
+                       course_id: wilson.id) 
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -140,7 +157,8 @@ namespace :db do
                        par: "4",
                        distance: "375",
                        handicap: "14",
-                       course_nine_id: back.id) 
+                       course_nine_id: back.id,
+                       course_id: wilson.id) 
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -148,7 +166,8 @@ namespace :db do
                        par: "5",
                        distance: "577",
                        handicap: "10",
-                       course_nine_id: back.id) 
+                       course_nine_id: back.id,
+                       course_id: wilson.id) 
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -156,7 +175,8 @@ namespace :db do
                        par: "3",
                        distance: "152",
                        handicap: "18",
-                       course_nine_id: back.id) 
+                       course_nine_id: back.id,
+                       course_id: wilson.id) 
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -164,7 +184,8 @@ namespace :db do
                        par: "4",
                        distance: "438",
                        handicap: "2",
-                       course_nine_id: back.id) 
+                       course_nine_id: back.id,
+                       course_id: wilson.id) 
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -172,7 +193,8 @@ namespace :db do
                        par: "4",
                        distance: "398",
                        handicap: "12",
-                       course_nine_id: back.id) 
+                       course_nine_id: back.id,
+                       course_id: wilson.id) 
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: blacktees.id,
@@ -180,7 +202,8 @@ namespace :db do
                        par: "4",
                        distance: "399",
                        handicap: "8",
-                       course_nine_id: back.id)                                                                      
+                       course_nine_id: back.id,
+                       course_id: wilson.id)                                                                      
 
     bluetees = Tee.create!(name: "Blue", 
                 golf_course_id: griffith.id,
@@ -188,9 +211,10 @@ namespace :db do
                 par: "72",
                 rating: "71.8",
                 distance: "6685",
-                pos: "2")
+                pos: "2",
+                course_id: wilson.id)
 
-    front = CourseNine.create!(name: "Front")
+    front = CourseNine.create!(name: "Front", golf_course_id: griffith.id, course_id: wilson.id)
     
     CourseRelationship.create!(course_nine_id: front.id, 
                                tee_id: bluetees.id, 
@@ -268,7 +292,7 @@ namespace :db do
                        handicap: "11",
                        course_nine_id: front.id)
 
-    back = CourseNine.create!(name: "Back")
+    back = CourseNine.create!(name: "Back", golf_course_id: griffith.id, course_id: wilson.id)
         
     CourseRelationship.create!(course_nine_id: back.id, 
                                tee_id: bluetees.id, 
@@ -280,7 +304,8 @@ namespace :db do
                        par: "4",
                        distance: "391",
                        handicap: "4",
-                       course_nine_id: back.id)
+                       course_nine_id: back.id,
+                       course_id: wilson.id)
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: bluetees.id,
@@ -288,7 +313,8 @@ namespace :db do
                        par: "3",
                        distance: "203",
                        handicap: "6",
-                       course_nine_id: back.id)                       
+                       course_nine_id: back.id,
+                       course_id: wilson.id)                       
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: bluetees.id,
@@ -296,7 +322,8 @@ namespace :db do
                        par: "4",
                        distance: "353",
                        handicap: "16",
-                       course_nine_id: back.id) 
+                       course_nine_id: back.id,
+                       course_id: wilson.id) 
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: bluetees.id,
@@ -304,7 +331,8 @@ namespace :db do
                        par: "4",
                        distance: "362",
                        handicap: "14",
-                       course_nine_id: back.id) 
+                       course_nine_id: back.id,
+                       course_id: wilson.id)
 
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: bluetees.id,
@@ -312,40 +340,46 @@ namespace :db do
                        par: "5",
                        distance: "558",
                        handicap: "10",
-                       course_nine_id: back.id) 
-
+                       course_nine_id: back.id,
+                       course_id: wilson.id)
+                       
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: bluetees.id,
                        num: "15",
                        par: "3",
                        distance: "137",
                        handicap: "18",
-                       course_nine_id: back.id) 
-
+                       course_nine_id: back.id,
+                       course_id: wilson.id)    
+    
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: bluetees.id,
                        num: "16",
                        par: "4",
                        distance: "439",
                        handicap: "2",
-                       course_nine_id: back.id) 
-
+                       course_nine_id: back.id,
+                       course_id: wilson.id)   
+    
     Hole.create!(golf_course_id: griffith.id,
+    
                        tee_id: bluetees.id,
                        num: "17",
                        par: "4",
                        distance: "395",
                        handicap: "12",
-                       course_nine_id: back.id) 
-
+                       course_nine_id: back.id,
+                       course_id: wilson.id)  
+                       
     Hole.create!(golf_course_id: griffith.id,
                        tee_id: bluetees.id,
                        num: "18",
                        par: "4",
                        distance: "388",
                        handicap: "8",
-                       course_nine_id: back.id)
-
+                       course_nine_id: back.id,
+                       course_id: wilson.id)
+    
     whitetees = Tee.create!(name: "White", 
                 golf_course_id: griffith.id,
                 slope: "119",

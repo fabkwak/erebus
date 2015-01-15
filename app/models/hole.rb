@@ -27,7 +27,7 @@ class Hole < ActiveRecord::Base
   					:handicap, 
   					:ladies_par, 
   					:ladies_handi,
-  					:course_nine_id
+  					:course_nine_id,
             :course_id
  
 
